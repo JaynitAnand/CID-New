@@ -49,6 +49,8 @@ public class OnlineDataBase extends HttpServlet
 		System.out.println(email);
 		//stmt=con.prepareStatement(sql);
 		stmt.executeUpdate(sql);
+		
+		response.sendRedirect(requeest.getContextPath()+"/index.html");
 	}
 		catch(SQLException e)
 		{
