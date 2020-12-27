@@ -37,7 +37,7 @@ public class OnlineDataBase extends HttpServlet
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-	
+		PrintWriter out= response.getWriter();
 		try
 		{
 		String name= request.getParameter("Name");
@@ -50,7 +50,13 @@ public class OnlineDataBase extends HttpServlet
 		//stmt=con.prepareStatement(sql);
 		stmt.executeUpdate(sql);
 		
-		response.sendRedirect(requeest.getContextPath()+"/index.html");
+		out.println("<html><head><title>Demo Page</title>");
+			out.println("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">");
+			out.println("<link rel='stylesheet' href='css/bootstrap.min.css>'<script>");
+			out.println("<link rel='javascript' href='js/bootstrap.min.js>'<script>");
+			out.println("</head><body>");
+			out.println("<h1>Hello World</h1>");
+			out.println("</body></html>");
 	}
 		catch(SQLException e)
 		{
